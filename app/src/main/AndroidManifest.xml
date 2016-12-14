@@ -31,7 +31,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.karolinawullum.quizapp.LoginActivity" />
         </activity>
-        <activity android:name=".PlayQuiz"></activity>
+        <activity android:name=".PlayQuiz" />
+        <activity android:name=".MultiplayerQuiz"></activity>
     </application>
 
 </manifest>

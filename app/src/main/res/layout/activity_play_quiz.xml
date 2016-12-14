@@ -12,4 +12,13 @@
     tools:context="com.example.karolinawullum.quizapp.PlayQuiz"
     >
 
+    <TextView
+        android:text="Which country does this flag belong to?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:id="@+id/textView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 </RelativeLayout>
