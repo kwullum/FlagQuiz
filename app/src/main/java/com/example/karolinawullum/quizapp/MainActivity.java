@@ -11,37 +11,37 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button; //button imported
 
 public class MainActivity extends AppCompatActivity {
+
+    private static Button button1_sbm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        OnClickButtonListener();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    //Called when the user clicks the PLAY button.
-    public void onClickPlay(View view){
-        //Intent intent = new Intent(PlayQuiz.class, MultiplayerQuiz.class);
-        //startActivity(intent);
-        //do something in response to PLAY button
+    public void OnClickButtonListener() {
+        button1_sbm = (Button)findViewById(R.id.button1);
+        button1_sbm.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent("com.example.karolinawullum.quizapp.PlayQuiz");
+                        startActivity(intent);
+                    }
+                }
+        );
     }
 
-    //Called when the user clicks the MULTIPLAYER button.
-    public void onClickMultiplayer(View view){
-        //do something in response to MULTIPLAYER button
+
     }
 
-}
+
+
+
+
