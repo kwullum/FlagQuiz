@@ -55,6 +55,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      */
 
 
+
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello", "bar@example.com:world"
     };
@@ -364,5 +365,26 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
         }
     }
+
+
+/*
+    private  Button register_button_sbm;                    //register button
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        OnClickButtonListener();
+    }
+    public void OnClickButtonListener() {
+        register_button_sbm = (Button)findViewById(R.id.register_button);
+        register_button_sbm.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent MyIntent = new Intent(LoginActivity.this, Register.class);
+                        startActivity(MyIntent);
+                    }
+                }
+        );
+        */
 }
 
