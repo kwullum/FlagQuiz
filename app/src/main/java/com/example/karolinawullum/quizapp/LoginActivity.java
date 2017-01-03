@@ -64,7 +64,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private User myUser;
 
 
-
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -75,6 +74,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +107,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+
     }
 
     private void populateAutoComplete() {
@@ -367,24 +369,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
 
-/*
-    private  Button register_button_sbm;                    //register button
 
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        OnClickButtonListener();
-    }
-    public void OnClickButtonListener() {
-        register_button_sbm = (Button)findViewById(R.id.register_button);
-        register_button_sbm.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent MyIntent = new Intent(LoginActivity.this, Register.class);
-                        startActivity(MyIntent);
-                    }
-                }
-        );
-        */
 }
 

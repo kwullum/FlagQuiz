@@ -14,13 +14,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <activity
+            android:name=".Home"
+            android:label="@string/title_home">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="com.example.karolinawullum.quizapp.LoginActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
@@ -32,31 +42,26 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.karolinawullum.quizapp.LoginActivity" />
+
             <intent-filter>
                 <action android:name="com.example.karolinawullum.quizapp.MainActivity" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".PlayQuiz"
-            android:label="@string/title_activity_play_quiz" >
-        </activity>
-
-
-        <activity android:name=".MultiplayerQuiz" > </activity>
-
-
+            android:label="@string/title_activity_play_quiz"></activity>
+        <activity android:name=".MultiplayerQuiz"></activity>
         <activity
             android:name=".Register"
             android:label="@string/title_register">
             <intent-filter>
                 <action android:name="com.example.karolinawullum.quizapp.LoginActivity" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
 
     </application>
 

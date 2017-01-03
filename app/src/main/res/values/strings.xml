@@ -16,6 +16,7 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_play_quiz">PlayQuiz</string>
     <string name="title_register">Register</string>
+    <string name="title_home">Home</string>
     <string name="confirm_registry">Email not found. You want to create a new user with that email and password?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
