@@ -15,31 +15,23 @@ import android.widget.Button; //button imported
 
 public class MainActivity extends AppCompatActivity {
 
-    private static Button button1_sbm;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        OnClickButtonListener();
 
+        Button button_play = (Button)findViewById(R.id.button1);
+
+        button_play.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentPlay = new Intent(MainActivity.this, PlayQuiz.class);
+                startActivity(intentPlay);
+            }
+        });
     }
 
-    public void OnClickButtonListener() {
-        button1_sbm = (Button)findViewById(R.id.button1);
-        button1_sbm.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent("com.example.karolinawullum.quizapp.PlayQuiz");
-                        startActivity(intent);
-                    }
-                }
-        );
-    }
-
-
-    }
+}
 
 
 

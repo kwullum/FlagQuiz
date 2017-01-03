@@ -9,7 +9,6 @@ import android.view.View.OnClickListener;
 
 public class Home extends AppCompatActivity {
 
-    //Button btnSignIn,btnSignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

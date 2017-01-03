@@ -13,12 +13,25 @@
     >
 
     <TextView
-        android:text="Which country does this flag belong to?"
+        android:text="Which country does this flag belong to? Press flag to answer."
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp"
         android:id="@+id/textView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/austria"
+        android:id="@+id/imageButton2"
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="43dp" />
+
 </RelativeLayout>

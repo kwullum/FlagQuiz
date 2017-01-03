@@ -30,10 +30,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import android.widget.Toast;
-import com.example.karolinawullum.quizapp.DBTools;
-import com.example.karolinawullum.quizapp.User;
-
 import java.util.ArrayList;
 import java.util.List;
 
