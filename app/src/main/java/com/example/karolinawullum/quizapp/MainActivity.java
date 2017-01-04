@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         button_play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentPlay = new Intent(MainActivity.this, PlayQuiz.class);
+                Intent intentPlay = new Intent(MainActivity.this, Play.class);
                 startActivity(intentPlay);
             }
         });
