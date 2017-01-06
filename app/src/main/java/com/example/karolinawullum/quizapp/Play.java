@@ -1,5 +1,6 @@
 package com.example.karolinawullum.quizapp;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.app.FragmentManager;
@@ -9,17 +10,20 @@ import android.app.FragmentTransaction;
 import android.view.View.OnClickListener;
 import android.view.LayoutInflater;
 import android.widget.ImageButton;
+import android.view.ViewGroup;
 
 
 import layout.FragmentOne;
 import layout.FragmentTwo;
+import layout.FragmentThree;
 
 
 public class Play extends MainActivity {
 
-    //Fragment fragment2;
-    //ImageButton imageBtn10;
-    //ImageButton imageBtn9;
+    /* private Context context;
+    private boolean status = false;
+    FragmentTransaction fT;
+    FragmentManager fM;     */
 
 
     @Override
@@ -27,50 +31,102 @@ public class Play extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
 
-        ImageButton imageBtn10 = (ImageButton)findViewById(R.id.imageButton10);
-        ImageButton imageBtn9 = (ImageButton)findViewById(R.id.imageButton9);
+
+        final ImageButton imageBtn10 = (ImageButton) findViewById(R.id.imageButton10);
+        final ImageButton imageBtn9 = (ImageButton) findViewById(R.id.imageButton9);
+        final ImageButton imageBtn8 = (ImageButton) findViewById(R.id.imageButton8);
+
+        imageBtn10.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+
+                FragmentManager fragMan = getFragmentManager();
+                FragmentTransaction fragTrans = fragMan.beginTransaction();
+                FragmentOne f1 = new FragmentOne();
+
+                if (f1.isHidden()) {
+                    fragTrans.show(f1);
+
+                } else {
+                    fragTrans.hide(f1);
+                }
+                fragTrans.replace(R.id.fragment_place, new FragmentOne());
+                fragTrans.commit();
+              }
 
 
-        imageBtn10 = (ImageButton)findViewById(R.id.imageButton10);
-        imageBtn10.setOnClickListener(new View.OnClickListener()      {
-               @Override
-                public void onClick(View v) {
-                   FragmentManager fragMan = getFragmentManager();
-                   FragmentTransaction fragTrans = fragMan.beginTransaction();
+            });
 
-                   FragmentOne f1 = new FragmentOne();
-                   //fragTrans.add(R.id.fragment_place,f1);
-                   fragTrans.replace(R.id.fragment_place, new FragmentOne());
-                   fragTrans.addToBackStack(null);
-                   fragTrans.commit();
 
-               }
+        imageBtn9.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                if (v.equals(imageBtn9)) {
+
+                    FragmentManager fragMan = getFragmentManager();
+                    FragmentTransaction fragTrans = fragMan.beginTransaction();
+
+                    FragmentTwo f2 = new FragmentTwo();
+                    FragmentOne f1 = new FragmentOne();
+                    if (f2.isHidden()) {
+                        fragTrans.show(f2);
+                        fragTrans.hide(f1);
+                    } else {
+                        fragTrans.hide(f2);
+                    }
+
+                    fragTrans.replace(R.id.fragment_place, new FragmentTwo());
+                    fragTrans.commit();
+
+                } else {
+                    FragmentManager fragMan = getFragmentManager();
+                    FragmentTransaction fragTrans = fragMan.beginTransaction();
+
+                    FragmentTwo f2 = new FragmentTwo();
+                    fragTrans.hide(f2);
+
+                }
+
+            }
         });
 
-        imageBtn9 = (ImageButton)findViewById(R.id.imageButton9);
-        imageBtn9.setOnClickListener(new View.OnClickListener()      {
+        imageBtn8.setOnClickListener(new View.OnClickListener() {
 
-               @Override
-                public void onClick(View v) {
-                   if(v.equals(imageBtn9)) {
+            @Override
+            public void onClick(View v) {
 
-                   FragmentManager fragMan = getFragmentManager();
-                   FragmentTransaction fragTrans = fragMan.beginTransaction();
 
-                   FragmentTwo f2 = new FragmentTwo();
-                   fragTrans.replace(R.id.fragment_place2, new FragmentTwo());
-                   //fragTrans.add(R.id.fragment_place2,f2);
-                   fragTrans.addToBackStack(null);
-                   //fragTrans.hide(fragment2);
-                   fragTrans.commit();
-                                          }
+                    FragmentManager fragMan = getFragmentManager();
+                    FragmentTransaction fragTrans = fragMan.beginTransaction();
 
-               }
+                    FragmentThree f3 = new FragmentThree();
+                    FragmentTwo f2 = new FragmentTwo();
+                    FragmentOne f1 = new FragmentOne();
+                    /* if (f3.isHidden()) {
+                        fragTrans.show(f3);
+                        fragTrans.hide(f1);
+                        fragTrans.hide(f2);
+                    } else {
+                        fragTrans.hide(f3);
+                    }     */
+
+                    fragTrans.replace(R.id.fragment_place, new FragmentThree());
+                    fragTrans.hide(f1);
+                    fragTrans.hide(f2);
+                    fragTrans.commit();
+
+
+
+
+            }
         });
+
 
     }
 
-
+}
     /* public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             return inflater.inflate(R.layout.fragment_fragment_one, container, false);
 
@@ -97,4 +153,4 @@ public class Play extends MainActivity {
     }
     */
 
-}
+
