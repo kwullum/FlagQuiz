@@ -25,7 +25,7 @@ public class Home extends AppCompatActivity {
                 startActivity(intentSignIN);
             }
         });
-
+/*
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,5 +34,6 @@ public class Home extends AppCompatActivity {
 
             }
         });
+        */
     }
 }

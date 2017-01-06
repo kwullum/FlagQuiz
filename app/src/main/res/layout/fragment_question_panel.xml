@@ -21,30 +21,4 @@
             android:hint="Answer" />
     </android.support.design.widget.TextInputLayout>
 
-    <Button
-        android:text="Submit answer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/answer_button"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="151dp" />
-
-    <Button
-        android:text="Get score (End quiz)"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/score_button"
-        android:layout_below="@+id/hint_button"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:text="Hint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="59dp"
-        android:id="@+id/hint_button"
-        android:layout_alignTop="@+id/answer_button"
-        android:layout_centerHorizontal="true" />
-
 </RelativeLayout>

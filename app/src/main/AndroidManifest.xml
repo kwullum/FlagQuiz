@@ -45,6 +45,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".Play"
             android:label="@string/title_activity_play">
@@ -54,6 +55,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+
+
         <activity
             android:name=".Register"
             android:label="@string/title_register">
@@ -72,10 +76,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-
-
-
 
     </application>
 
