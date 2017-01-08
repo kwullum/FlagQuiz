@@ -34,7 +34,6 @@ public class Play extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
 
-        //final int total = (FragmentOne.a + FragmentTwo.b);
         final String myScore = String.valueOf(total);
 
         final ImageButton imageBtn10 = (ImageButton) findViewById(R.id.imageButton10);

@@ -11,6 +11,9 @@ import android.widget.Toast;
 import android.content.Context;
 import android.provider.ContactsContract;
 import android.widget.TextView;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
 
 public class Register extends Activity {
 
@@ -20,11 +23,11 @@ public class Register extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
     }
 
+
     public void onRegisterClick(View v) {
-        if (v.getId() == R.id.register_complete) //changed from xml in activity_home which has id buttonSignUP
+        if (v.getId() == R.id.register_complete)
         {
             EditText email = (EditText) findViewById(R.id.editEmail);
             EditText pass1 = (EditText) findViewById(R.id.editTextPassword);
@@ -53,9 +56,10 @@ public class Register extends Activity {
 
         }
 
-        //Intent registerIntent = new Intent(Register.this, Home.class);   //without this, users have to manually go back to Home.java
-        //startActivity(registerIntent);
+        Intent registerIntent = new Intent(Register.this, Home.class); //cheeky: changing home to play.
+        startActivity(registerIntent);
     }
+
 
 }
 

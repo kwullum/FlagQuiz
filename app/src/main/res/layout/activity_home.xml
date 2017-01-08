@@ -31,5 +31,6 @@
         android:layout_alignStart="@+id/buttonSignIN"
         android:layout_marginTop="87dp"
         android:layout_alignRight="@+id/buttonSignIN"
-        android:layout_alignEnd="@+id/buttonSignIN" />
+        android:layout_alignEnd="@+id/buttonSignIN"
+        android:onClick="onSignUpClick" />
 </RelativeLayout>
