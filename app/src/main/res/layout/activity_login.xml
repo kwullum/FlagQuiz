@@ -29,7 +29,8 @@
             android:id="@+id/email_login_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:weightSum="1">
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -73,6 +74,16 @@
                 android:text="@string/action_sign_in"
                 android:textStyle="bold"
                 tools:onClick="login" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="To register, enter desired email and password and press 'Sign in'."
+                android:layout_marginTop="50dp"
+                tools:ignore="HardcodedText"
+                android:layout_weight="4.71"
+                android:textAlignment="center"
+                android:textStyle="normal|bold" />
 
 
         </LinearLayout>

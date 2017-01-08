@@ -1,31 +1,29 @@
 package com.example.karolinawullum.quizapp;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.app.FragmentManager;
 import android.view.View;
-import android.app.Fragment;
 import android.app.FragmentTransaction;
-import android.view.View.OnClickListener;
-import android.view.LayoutInflater;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.view.ViewGroup;
-
 
 import layout.FragmentOne;
 import layout.FragmentTwo;
 import layout.FragmentThree;
+import layout.FragmentFour;
+import layout.FragmentFive;
+import layout.FragmentSix;
+import layout.FragmentSeven;
+import layout.FragmentEight;
 import layout.FragmentDefault;
 
 
 public class Play extends MainActivity {
 
     private int total = 0;
-
-    public void updateScore(int add){
+    //Calculates score. Gets updated when user answers correctly in a question (fragment)
+    public void updateScore(int add){ //When you answer correctly, you get 1 point.
         total += add;
     }
 
@@ -35,6 +33,8 @@ public class Play extends MainActivity {
         setContentView(R.layout.activity_play);
 
         final String myScore = String.valueOf(total);
+
+        //Below all the flag buttons are declared.
 
         final ImageButton imageBtn10 = (ImageButton) findViewById(R.id.imageButton10);
         final ImageButton imageBtn9 = (ImageButton) findViewById(R.id.imageButton9);
@@ -47,36 +47,28 @@ public class Play extends MainActivity {
 
         final Button button_score = (Button)findViewById(R.id.scoreButton);
 
-
+        //First fragment shown is the default, which is blank
         FragmentManager fragMan = getFragmentManager();
         FragmentTransaction fragTrans = fragMan.beginTransaction();
         FragmentDefault fd = new FragmentDefault();
         fragTrans.replace(R.id.fragment_place, fd);
         fragTrans.commit();
 
-        fragTrans.hide(new FragmentOne());
-        fragTrans.hide(new FragmentTwo());
-        fragTrans.hide(new FragmentThree());
-
+        //Get Score button takes you to FinalActivity
         button_score.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
-                //bundle.putString("yes", myScore);
                 bundle.putString("yes", String.valueOf(total));
 
                 Intent intent= new Intent(Play.this, FinalActivity.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
 
-                /*
-                Intent intentPlay = new Intent(Play.this, FinalActivity.class);
-                intentPlay.putExtras(bundle);
-                startActivity(intentPlay);
-                */
             }
         });
 
+        //Each imagebutton loads a new question (fragment)
         imageBtn10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,7 +76,6 @@ public class Play extends MainActivity {
                     FragmentTransaction fragTrans = fragMan.beginTransaction();
                     fragTrans.replace(R.id.fragment_place, new FragmentOne());
                     fragTrans.commit();
-                    //imageBtn10.setEnabled(false);
             }
 
         });
@@ -118,7 +109,7 @@ public class Play extends MainActivity {
             public void onClick(View v) {
                 FragmentManager fragMan = getFragmentManager();
                 FragmentTransaction fragTrans = fragMan.beginTransaction();
-                fragTrans.replace(R.id.fragment_place, new FragmentThree());
+                fragTrans.replace(R.id.fragment_place, new FragmentFour());
                 fragTrans.commit();
             }
         });
@@ -129,7 +120,7 @@ public class Play extends MainActivity {
             public void onClick(View v) {
                 FragmentManager fragMan = getFragmentManager();
                 FragmentTransaction fragTrans = fragMan.beginTransaction();
-                fragTrans.replace(R.id.fragment_place, new FragmentThree());
+                fragTrans.replace(R.id.fragment_place, new FragmentFive());
                 fragTrans.commit();
             }
         });
@@ -140,7 +131,7 @@ public class Play extends MainActivity {
             public void onClick(View v) {
                 FragmentManager fragMan = getFragmentManager();
                 FragmentTransaction fragTrans = fragMan.beginTransaction();
-                fragTrans.replace(R.id.fragment_place, new FragmentThree());
+                fragTrans.replace(R.id.fragment_place, new FragmentSix());
                 fragTrans.commit();
             }
         });
@@ -151,7 +142,7 @@ public class Play extends MainActivity {
             public void onClick(View v) {
                 FragmentManager fragMan = getFragmentManager();
                 FragmentTransaction fragTrans = fragMan.beginTransaction();
-                fragTrans.replace(R.id.fragment_place, new FragmentThree());
+                fragTrans.replace(R.id.fragment_place, new FragmentSeven());
                 fragTrans.commit();
                 //imageBtn4.setEnabled(false);
             }
@@ -163,19 +154,13 @@ public class Play extends MainActivity {
             public void onClick(View v) {
                 FragmentManager fragMan = getFragmentManager();
                 FragmentTransaction fragTrans = fragMan.beginTransaction();
-                fragTrans.replace(R.id.fragment_place, new FragmentThree());
+                fragTrans.replace(R.id.fragment_place, new FragmentEight());
                 fragTrans.commit();
             }
         });
 
 
-        //sharedpreferences = getSharedpreferences("mypref", Context.MODE_PRIVATE);
-
-
-
     }
-
-
 
 
 }

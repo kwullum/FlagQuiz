@@ -11,16 +11,12 @@ import android.app.LoaderManager.LoaderCallbacks;
 
 import android.content.CursorLoader;
 import android.content.Loader;
-import android.content.Intent;          //need to import this to be able to intent.
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.content.DialogInterface;
 import android.app.AlertDialog;
-
-import com.example.karolinawullum.quizapp.DBTools;
-import com.example.karolinawullum.quizapp.User;
-
 import android.content.Context;
 
 import android.os.Build;
@@ -37,9 +33,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,33 +42,13 @@ import static android.Manifest.permission.READ_CONTACTS;
 /**
  * A login screen that offers login via email/password.
  */
+
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
-   LoginDataBaseAdapter helper = new LoginDataBaseAdapter(this);                   //FOR THE REGISTER DATABASE
-
-    /**
-     * Id to identity READ_CONTACTS permission request.
-     */
+    //Id to identity READ_CONTACTS permission request.
     private static final int REQUEST_READ_CONTACTS = 0;
 
-    /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
-
-
-/*
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
-    };
-
-*/
     private User myUser;
-
-
-    /**
-     * Keep track of the login task to ensure we can cancel it if requested.
-     */
     private UserLoginTask mAuthTask = null;
 
     // UI references.
@@ -119,37 +92,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
 
-
     }
-/*
-    public void onRegisterClick(View v){                        //FOR THE REGISTER DATABASE (this method)
-            AutoCompleteTextView a = (AutoCompleteTextView) findViewById(R.id.email);
-            String str = mEmailView.getText().toString();
-            EditText b = (EditText)findViewById(R.id.password);
-            String pass = b.getText().toString();
-
-            String password = helper.searchPass(str);
-
-            if (pass.equals(password)){
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                LoginActivity.this.startActivity(intent);
-            }
-            else {
-                Toast temp = Toast.makeText(LoginActivity.this, "Username and password don't match!", Toast.LENGTH_SHORT);
-                temp.show();
-            }
-        }
-
-    */
-    //the above is kinda fucked rn, update it from stack overflow
-
 
 
     private void populateAutoComplete() {
         if (!mayRequestContacts()) {
             return;
         }
-
         getLoaderManager().initLoader(0, null, this);
     }
 
@@ -190,11 +139,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
 
-    /**
-     * Attempts to sign in or register the account specified by the login form.
-     * If there are form errors (invalid email, missing fields, etc.), the
-     * errors are presented and no actual login attempt is made.
-     */
+    /*
+    Attempts to sign in or register the account specified by the login form.
+    If there are form errors (invalid email, missing fields, etc.), the
+    errors are presented and no actual login attempt is made.
+    */
     private void attemptLogin() {
         if (mAuthTask != null) {
             return;
@@ -230,25 +179,21 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
 
         if (cancel) {
-            // There was an error; don't attempt login and focus the first
-            // form field with an error.
+            // There was an error; don't attempt login and focus the first form field with an error.
             focusView.requestFocus();
         } else {
-            // Show a progress spinner, and kick off a background task to
-            // perform the user login attempt.
+            // Show a progress spinner, and kick off a background task to perform the user login attempt.
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password, this);
             mAuthTask.execute((Void) null);
         }
     }
 
-    private boolean isEmailValid(String email) {
-        //TODO: Replace this with your own logic
+    private boolean isEmailValid(String email) { //Requirement for the email to be valid.
         return email.contains("@");
     }
 
-    private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
+    private boolean isPasswordValid(String password) { //Requirement for the password to be valid.
         return password.length() > 4;
     }
 
@@ -257,9 +202,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      */
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     private void showProgress(final boolean show) {
-        // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
-        // for very easy animations. If available, use these APIs to fade-in
-        // the progress spinner.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
             int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
 
@@ -281,8 +223,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 }
             });
         } else {
-            // The ViewPropertyAnimator APIs are not available, so simply show
-            // and hide the relevant UI components.
+
             mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
             mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
         }
@@ -300,8 +241,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                         " = ?", new String[]{ContactsContract.CommonDataKinds.Email
                 .CONTENT_ITEM_TYPE},
 
-                // Show primary email addresses first. Note that there won't be
-                // a primary email address if the user hasn't specified one.
+                // Show primary email addresses first.
                 ContactsContract.Contacts.Data.IS_PRIMARY + " DESC");
     }
 
@@ -313,13 +253,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             emails.add(cursor.getString(ProfileQuery.ADDRESS));
             cursor.moveToNext();
         }
-
         addEmailsToAutoComplete(emails);
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> cursorLoader) {
-
     }
 
     private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
@@ -358,10 +296,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mContext= context;
         }
 
+        //Checks DBTools if the account exists.
         @Override
         protected Boolean doInBackground(Void... params) {
             DBTools dbTools=null;
-            // TODO: attempt authentication against a network service.
 
             try{
                 dbTools = new DBTools(mContext);
@@ -388,7 +326,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = null;
             showProgress(false);
 
-            if (success) {                                                                  ///if successful login
+            /*
+            If Login is successful, it takes you to the next activity.
+            If not, you can create an account.
+             */
+            if (success) {
                 if (myUser.userId>0) {
                     finish();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);

@@ -11,26 +11,13 @@
     tools:context="com.example.karolinawullum.quizapp.Home">
 
     <Button
-        android:text="SIGN IN"
+        android:text="SIGN IN OR REGISTER AN ACCOUNT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="123dp"
+        android:layout_marginTop="176dp"
         android:id="@+id/buttonSignIN"
         tools:onClick="buttonSignIN"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:text="SIGN UP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonSignUP"
-        tools:onClick="buttonSignUP"
-        android:layout_below="@+id/buttonSignIN"
-        android:layout_alignLeft="@+id/buttonSignIN"
-        android:layout_alignStart="@+id/buttonSignIN"
-        android:layout_marginTop="87dp"
-        android:layout_alignRight="@+id/buttonSignIN"
-        android:layout_alignEnd="@+id/buttonSignIN"
-        android:onClick="onSignUpClick" />
 </RelativeLayout>

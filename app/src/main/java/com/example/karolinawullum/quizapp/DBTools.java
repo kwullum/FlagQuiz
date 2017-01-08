@@ -6,6 +6,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+/*
+This is our SQLite helper.
+Manages data associated with login and register.
+We get the Login info from database (SQLite) instead of static variable. This allows
+us to have more than one user registered on the device.
+ */
 
 public class DBTools extends SQLiteOpenHelper {
 
@@ -26,7 +32,6 @@ public class DBTools extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
         try{
             System.out.println("UPGRADE DB oldVersion="+oldVersion+" - newVersion="+newVersion);
-            //recreateDb(sqLiteDatabase);
             if (oldVersion<10){
                 String query = "create table logins (userId Integer primary key autoincrement, "+
                         " username text, password text)";
@@ -38,7 +43,6 @@ public class DBTools extends SQLiteOpenHelper {
 
     @Override
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // super.onDowngrade(db, oldVersion, newVersion);
         System.out.println("DOWNGRADE DB oldVersion="+oldVersion+" - newVersion="+newVersion);
     }
 

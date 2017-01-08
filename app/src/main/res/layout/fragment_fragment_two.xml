@@ -21,7 +21,7 @@
         android:layout_width="230dp" />
 
     <Button
-        android:text="Hint"
+        android:text="CHEAT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/hintBtn"

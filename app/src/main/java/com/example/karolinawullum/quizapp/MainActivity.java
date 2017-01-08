@@ -6,12 +6,9 @@ package com.example.karolinawullum.quizapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button; //button imported
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +19,10 @@ public class MainActivity extends AppCompatActivity {
 
         Button button_play = (Button)findViewById(R.id.button1);
 
+        /*
+        When pressing "Play" you are taken to the next activity,
+        and the quiz starts.
+         */
         button_play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

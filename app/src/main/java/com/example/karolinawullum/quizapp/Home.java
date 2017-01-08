@@ -5,10 +5,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.content.Intent;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.EditText;
-import android.util.Log;
-
 
 public class Home extends AppCompatActivity {
 
@@ -18,9 +14,12 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
         Button btnSignIn = (Button) findViewById(R.id.buttonSignIN);
-        Button btnSignUp = (Button) findViewById(R.id.buttonSignUP);
+
+        /*
+        The code below takes you to the next activity (LoginActivity.java)
+        when you press the "Sign up or register an account" button.
+         */
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,16 +28,5 @@ public class Home extends AppCompatActivity {
                 startActivity(intentSignIN);
             }
         });
-
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentSignUP = new Intent(Home.this, Register.class);
-                startActivity(intentSignUP);
-
-            }
-        });
-
-
     }
 }

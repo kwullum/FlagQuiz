@@ -13,16 +13,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.karolinawullum.quizapp.Play;
 import com.example.karolinawullum.quizapp.R;
 
 public class FragmentTwo extends Fragment {
 
     private EditText userAnswer;
-    public static int b = 0;
-    //private boolean wellAnswered;
-    //private Button ScoreButton;
-
-    //private SharedPreferences sharedpreferences;
+    private boolean hintUsed;
 
 
     @Override
@@ -33,26 +30,26 @@ public class FragmentTwo extends Fragment {
         userAnswer = (EditText)v.findViewById(R.id.editText);
         final TextView tv = (TextView)v.findViewById(R.id.showCorrect);
         final TextView hintv = (TextView)v.findViewById(R.id.textHint);
-
+        //final int a;
 
         final Button submit = (Button)v.findViewById(R.id.submitBtn1);
         submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                //SharedPreferences.Editor editor = sharedpreferences.edit();
                 String theAnswer = (userAnswer.getText().toString());
                 if (theAnswer.equalsIgnoreCase("Greece")) {
-                    //TextView tv = (TextView)v.findViewById(R.id.showCorrect);
-                    b++;
-                    tv.setText("Correct!");
-                    //wellAnswered = true;
+                    if (!hintUsed) {
+                        ((Play) getActivity()).updateScore(1);
+                        tv.setText("Correct, +1");
+                    } else {
+                        tv.setText("Correct, +0");
+                    }
 
                 } else {
                     tv.setText("Wrong");
                 }
                 submit.setEnabled(false);
 
-                // updateScore();
             }
         });
 
@@ -66,11 +63,15 @@ public class FragmentTwo extends Fragment {
         final Button hint = (Button)v.findViewById(R.id.hintBtn);
         hint.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                hintv.setText("The capital is Athens \n The country is in Europe \n It starts with G... ");
-                //submit.setEnabled(false);
+                hintv.setText("The flag belongs to Greece");
+                hint.setEnabled(false);
+                hintUsed = true;
             }
         });
 
 
+
+
         return v;}
+
 }

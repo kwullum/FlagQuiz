@@ -69,7 +69,7 @@
     <ImageView
         android:layout_width="170dp"
         android:layout_height="100dp"
-        app:srcCompat="@drawable/germany"
+        app:srcCompat="@drawable/finland"
         android:id="@+id/imageView"
         android:layout_marginTop="13dp"
         android:layout_alignParentTop="true"
