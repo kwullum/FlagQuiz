@@ -29,6 +29,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +40,10 @@ import static android.Manifest.permission.READ_CONTACTS;
  * A login screen that offers login via email/password.
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+
+
+
+    LoginDataBaseAdapter helper = new LoginDataBaseAdapter(this);                   //FOR THE REGISTER DATABASE
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -57,7 +62,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     };
 
 
-    private User myUser;
+    //private User myUser;
 
 
     /**
@@ -106,6 +111,27 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
 
     }
+
+    public void onRegisterClick(View v){                        //FOR THE REGISTER DATABASE (this method)
+            EditText a = (EditText)findViewById(R.id.email);
+            String str = a.getText().toString();
+            EditText b = (EditText)findViewById(R.id.password);
+            String pass = b.getText().toString();
+
+            String password = helper.searchPass(str);
+
+            if (pass.equals(password)){
+                Intent i = new Intent(LoginActivity.this, Play.class);
+                i.putExtra("Username", str);
+                startActivity(i);
+            }
+            else {
+                Toast temp = Toast.makeText(LoginActivity.this, "Username and password don't match!", Toast.LENGTH_SHORT);
+                temp.show();
+            }
+        }
+
+
 
     private void populateAutoComplete() {
         if (!mayRequestContacts()) {
@@ -320,7 +346,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         @Override
         protected Boolean doInBackground(Void... params) {
-            DBTools dbTools=null;
+            //DBTools dbTools=null;
             // TODO: attempt authentication against a network service.
 
             try {
@@ -363,8 +389,5 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
         }
     }
-
-
-
 }
 

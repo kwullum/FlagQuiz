@@ -45,19 +45,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".Play"
-            android:label="@string/title_activity_play">
-            <intent-filter>
-                <action android:name="com.example.karolinawullum.quizapp.Play" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-
-
         <activity
             android:name=".Register"
             android:label="@string/title_register">
@@ -68,6 +55,16 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".Play"
+            android:label="@string/title_activity_play">
+            <intent-filter>
+                <action android:name="com.example.karolinawullum.quizapp.Play" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".AnsweringQuestions"
             android:label="@string/title_answering_questions">
             <intent-filter>
@@ -76,7 +73,13 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".FinalActivity">
+            <intent-filter>
+                <action android:name="com.example.karolinawullum.quizapp.SharedPreferences" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

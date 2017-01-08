@@ -1,19 +1,51 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="layout.FragmentThree">
+    tools:context="layout.FragmentOne"
+    android:id="@+id/answer1">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/france"
+        android:id="@+id/imageView"
+        android:layout_marginTop="21dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
-        android:text="France"
-        android:layout_width="227dp"
-        android:layout_height="147dp"
-        android:id="@+id/button4" />
+        android:text="Hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:id="@+id/submitBtn1"
+        android:layout_below="@+id/editText"
+        android:layout_centerHorizontal="true" />
 
-</FrameLayout>
+    <Button
+        android:text="SKIP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/skipBtn"
+        android:layout_below="@+id/submitBtn1"
+        android:layout_alignLeft="@+id/submitBtn1"
+        android:layout_alignStart="@+id/submitBtn1" />
+
+    <EditText
+        android:layout_height="70dp"
+        android:inputType="textPersonName"
+        android:text="Write answer and press submit"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:textSize="16sp"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_width="230dp" />
+
+
+</RelativeLayout>

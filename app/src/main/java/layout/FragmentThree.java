@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 
 import com.example.karolinawullum.quizapp.R;
 
-
 public class FragmentThree extends Fragment {
 
     @Override

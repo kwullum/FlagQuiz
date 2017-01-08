@@ -1,4 +1,4 @@
-package com.example.karolinawullum.quizapp;
+/*package com.example.karolinawullum.quizapp;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -76,3 +76,4 @@ public class DBTools extends SQLiteOpenHelper {
         return myUser;
     }
 }
+*/

@@ -6,6 +6,9 @@ import android.widget.Button;
 import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.EditText;
+import android.util.Log;
+
 
 public class Home extends AppCompatActivity {
 
@@ -14,6 +17,7 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
 
         Button btnSignIn = (Button) findViewById(R.id.buttonSignIN);
         Button btnSignUp = (Button) findViewById(R.id.buttonSignUP);
@@ -25,7 +29,7 @@ public class Home extends AppCompatActivity {
                 startActivity(intentSignIN);
             }
         });
-/*
+
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,6 +38,7 @@ public class Home extends AppCompatActivity {
 
             }
         });
-        */
+
+
     }
 }

@@ -5,12 +5,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase;
 import android.content.Context;
 import android.provider.ContactsContract;
+import android.database.Cursor;
 
 
-/**
- * Created by karolinawullum on 03.01.2017.
- */
-/*
 public class LoginDataBaseAdapter extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
@@ -23,13 +20,8 @@ public class LoginDataBaseAdapter extends SQLiteOpenHelper {
     private static final String TABLE_CREATE = "create table userinfo (email text not null, pass text not null);";
 
 
-    public LoginDataBaseAdapter(Context context)
-    {
+    public LoginDataBaseAdapter(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-    }
-
-    public DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 1);
     }
 
     @Override
@@ -40,15 +32,37 @@ public class LoginDataBaseAdapter extends SQLiteOpenHelper {
 
     }
 
-    public void insertUserInfo(UserInfo u);
-    {
+    public void insertUserInfo(UserInfo u) {
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_EMAIL, u.getEmail);
-        values.put(COLUMN_PASS, u.getPass);
+        values.put(COLUMN_EMAIL, u.getEmail());
+        values.put(COLUMN_PASS, u.getPass());
 
         db.insert(TABLE_NAME, null, values);
+        db.close();
     }
+
+    public String searchPass(String email) {
+        db = this.getReadableDatabase();
+        String query = "select email, pass from " + TABLE_NAME;
+        Cursor cursor = db.rawQuery(query, null);
+        String a, b;
+        b = "not found";
+        if(cursor.moveToFirst()) {
+            do{
+                a = cursor.getString(0);
+                b = cursor.getString(1);
+
+                if(a.equals(email)) {
+                    b = cursor.getString(1);
+                    break;
+                }
+            }
+            while(cursor.moveToNext());
+        }
+        return b;
+    }
+
 
     @Override
     public void onUpgrade (SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -57,9 +71,4 @@ public class LoginDataBaseAdapter extends SQLiteOpenHelper {
         this.onCreate(db);
 
     }
-
-
-
-
 }
-*/
